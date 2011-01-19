@@ -1,7 +1,7 @@
 Dir.chdir(File.expand_path(File.dirname(__FILE__)))
 
 require 'sdl'
-require 'console'
+require 'sdl_console'
 
 SDL.init(SDL::INIT_VIDEO)
 SDL::TTF.init
