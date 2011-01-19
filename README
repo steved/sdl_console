@@ -1,0 +1,35 @@
+Console is a pure-ruby Ruby/SDL based quake-like console intended for inclusion in games.
+
+Requirements
+------------
+Ruby 1.8.2 or later: http://www.ruby-lang.org
+Ruby/SDL 0.9.5 or later: http://www.kmc.gr.jp/~ohai/rubysdl.en.html
+
+Installation
+------------
+No installation required, just drop it in the directory you would like and include it or install the Gem and add to your app:
+
+require 'rubygems'
+require_gem 'Console'
+
+Usage
+------
+Please see sample.rb for usage.
+To add commands just add a method to commands.rb in console/ or make a subclass of Console and add protected methods to it.
+
+Support
+-------
+Support can be found at http://rubyforums.com or http://rubyforge.org/projects/nebulargauntlet/
+
+License
+-------
+Console is released under the GNU General Public Licence. Please see 
+http://opensource.org/licenses/gpl-license.php for more information.
+
+Authors
+------
+Steven Davidovitz
+Robert Oliver
+David Gurba
+
+Note: To contact us, please visit rubyforums.com or post at rubyforge.org

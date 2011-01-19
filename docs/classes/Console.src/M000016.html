@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>draw (Console)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/console.rb, line 172</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">draw</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@active</span>
+
+    <span class="ruby-identifier">x</span> = <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">textSize</span>(<span class="ruby-ivar">@inputchar</span>)[<span class="ruby-value">0</span>] <span class="ruby-comment cmt"># Can be any key or number, just for a test</span>
+    <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@height</span> <span class="ruby-operator">-</span> (<span class="ruby-ivar">@font</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@screen</span>.<span class="ruby-identifier">drawFilledRectAlpha</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-ivar">@screen</span>.<span class="ruby-identifier">w</span>, <span class="ruby-ivar">@height</span>, <span class="ruby-ivar">@background</span>, <span class="ruby-ivar">@alpha</span>) <span class="ruby-comment cmt"># Draw white console with space for 5 lines</span>
+
+    <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">drawBlendedUTF8</span>(<span class="ruby-ivar">@screen</span>, <span class="ruby-ivar">@inputchar</span>, <span class="ruby-value">0</span>, <span class="ruby-ivar">@height</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">height</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>) <span class="ruby-comment cmt"># Draw input symbol </span>
+
+    <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">drawBlendedUTF8</span>(<span class="ruby-ivar">@screen</span>, <span class="ruby-ivar">@buffer</span>, <span class="ruby-identifier">x</span>, <span class="ruby-ivar">@height</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">height</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>) <span class="ruby-comment cmt"># Draw buffer</span>
+
+    <span class="ruby-ivar">@screen</span>.<span class="ruby-identifier">drawLine</span>(<span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> (<span class="ruby-ivar">@cursor_pos</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">textSize</span>(<span class="ruby-value str">&quot;a&quot;</span>)[<span class="ruby-value">0</span>]), <span class="ruby-ivar">@height</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">height</span>, <span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> (<span class="ruby-ivar">@cursor_pos</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">textSize</span>(<span class="ruby-value str">&quot;a&quot;</span>)[<span class="ruby-value">0</span>]), <span class="ruby-ivar">@height</span>, [<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>])
+
+    <span class="ruby-ivar">@console_view</span>.<span class="ruby-identifier">reverse_each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span> <span class="ruby-comment cmt"># Draw each message that is in view</span>
+      <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">drawBlendedUTF8</span>(<span class="ruby-ivar">@screen</span>, <span class="ruby-identifier">message</span>[<span class="ruby-value">0</span>], <span class="ruby-value">0</span>, <span class="ruby-identifier">y</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>)
+      <span class="ruby-identifier">y</span> <span class="ruby-operator">-=</span> <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">height</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
