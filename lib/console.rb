@@ -179,7 +179,9 @@ class Console
 
     @font.drawBlendedUTF8(@screen, @inputchar, 0, @height - @font.height, 0, 0, 0) # Draw input symbol 
 
-    @font.drawBlendedUTF8(@screen, @buffer, x, @height - @font.height, 0, 0, 0) # Draw buffer
+    unless @buffer.empty?
+      @font.drawBlendedUTF8(@screen, @buffer, x, @height - @font.height, 0, 0, 0) # Draw buffer
+    end
 
     @screen.drawLine(x + (@cursor_pos * @font.textSize("a")[0]), @height - @font.height, x + (@cursor_pos * @font.textSize("a")[0]), @height, [0, 0, 0])
 

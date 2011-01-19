@@ -19,7 +19,7 @@ To add commands just add a method to commands.rb in console/ or make a subclass 
 
 Support
 -------
-Support can be found at http://rubyforums.com or http://rubyforge.org/projects/nebulargauntlet/
+Support can be found at http://rubyforge.org/projects/nebulargauntlet/ or https://github.com/steved555/sdl_console
 
 License
 -------
@@ -29,7 +29,5 @@ http://opensource.org/licenses/gpl-license.php for more information.
 Authors
 ------
 Steven Davidovitz
-Robert Oliver
-David Gurba
 
 Note: To contact us, please visit rubyforums.com or post at rubyforge.org
